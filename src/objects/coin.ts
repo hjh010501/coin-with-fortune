@@ -2,7 +2,6 @@ import { IImageConstructor } from '../interfaces/image.interface';
 
 export class Coin extends Phaser.GameObjects.Image {
   private centerOfScreen: number;
-  // private changePositionTimer: Phaser.Time.TimerEvent;
   private lastPosition: string;
 
   constructor(aParams: IImageConstructor) {
@@ -10,14 +9,12 @@ export class Coin extends Phaser.GameObjects.Image {
 
     this.initVariables();
     this.initImage();
-    // this.initEvents();
 
     this.scene.add.existing(this);
   }
 
   private initVariables(): void {
     this.centerOfScreen = this.scene.sys.canvas.width / 2;
-    // this.changePositionTimer = null;
     this.setFieldSide();
   }
 
@@ -25,34 +22,18 @@ export class Coin extends Phaser.GameObjects.Image {
     this.setOrigin(0.5, 0.5);
   }
 
-  // private initEvents(): void {
-  //   this.changePositionTimer = this.scene.time.addEvent({
-  //     delay: Phaser.Math.RND.integerInRange(2000, 6000),
-  //     callback: this.changePosition,
-  //     callbackScope: this,
-  //     loop: true
-  //   });
-  // }
-
   update(): void {}
 
   public changePosition(): void {
     this.setNewPosition();
     this.setFieldSide();
-
-    // this.changePositionTimer.reset({
-    //   delay: Phaser.Math.RND.integerInRange(2000, 6000),
-    //   callback: this.changePosition,
-    //   callbackScope: this,
-    //   loop: true
-    // });
   }
 
   private setNewPosition(): void {
     if (this.lastPosition == 'right') {
       this.x = Phaser.Math.RND.integerInRange(100, this.centerOfScreen);
     } else {
-      this.x = Phaser.Math.RND.integerInRange(385, 700);
+      this.x = Phaser.Math.RND.integerInRange(385, 500);
     }
     this.y = Phaser.Math.RND.integerInRange(100, 500);
   }
@@ -64,4 +45,6 @@ export class Coin extends Phaser.GameObjects.Image {
       this.lastPosition = 'right';
     }
   }
-}
+};
+
+export class Cookie extends Coin {};

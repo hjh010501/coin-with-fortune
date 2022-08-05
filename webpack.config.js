@@ -14,9 +14,9 @@ module.exports = {
         loader: 'ts-loader'
       },
       {
-        test: require.resolve('Phaser'),
+        test: require.resolve('phaser'),
         loader: 'expose-loader',
-        options: { exposes: { globalName: 'Phaser', override: true } }
+        options: { exposes: { globalName: 'phaser', override: true } }
       }
     ]
   },
@@ -32,7 +32,7 @@ module.exports = {
         // /api로 시작하는 경로일 경우, ex) /api/rest/myInfo
         changeOrigin: true,
         cookieDomainRewrite: 'localhost',
-        target: 'https://fortuneapi.herokuapp.com/', // 요청 url 앞에 target을 붙여주기, ex) http://localhost:8080/api/rest/myInfo
+        target: 'http://211.58.102.6:8002/', // 요청 url 앞에 target을 붙여주기, ex) http://localhost:8080/api/rest/myInfo
         pathRewrite: { '/api': '/' } // /api에 해당하는 url을 없애기, ex) http://localhost:8080/rest/myInfo
       }
     }

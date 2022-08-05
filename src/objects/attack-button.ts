@@ -5,6 +5,7 @@ export class AttackButton extends Phaser.GameObjects.Image {
     super(aParams.scene, aParams.x, aParams.y, aParams.texture);
 
     this.initImage();
+    this.scene.add.existing(this);
   }
 
   private initImage(): void {

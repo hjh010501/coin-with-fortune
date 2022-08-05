@@ -37,7 +37,6 @@ export class Monster extends Phaser.GameObjects.Image {
   update(): void {
     // this.handleInput();
     this.moveRandomly();
-    this.hpText.destory(true);
     this.hpText = this.scene.add.text(this.x, this.y - 20, this.hpText.text);
   }
 

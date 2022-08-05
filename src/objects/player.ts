@@ -40,17 +40,15 @@ export class Player extends Phaser.GameObjects.Sprite {
   }
 
   public hitted(damage: number): void {
-    if (this.hp <= 0) return;
     this.hp -= damage;
-    this.hpText.text = `HP: ${this.hp}`;
     this.x -= 50;
     if (this.hp <= 0) {
+      this.hp = 0;
       this.isDead = true;
       this.setTexture('dead_player');
       this.hpText.setText(`You Lose...`);
-
-      // this.scene.add.text(this.scene.sys.canvas.width / 2, this.scene.sys.canvas.height / 2, 'You Lose...', Phaser.GameObjects.TextStyle.fontSize('30px'));
     }
+    this.hpText.text = `HP: ${this.hp}`;
   }
 
   update(): void {
